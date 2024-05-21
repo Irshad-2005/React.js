@@ -1,20 +1,13 @@
-import { useState } from "react";
-const Demo = () => {
-  const [count, setCount] = useState(0);
+import {nanoid} from "nanoid"
+const Demo = ()=>
+  {
+    const id = nanoid()
+      return (
+        <>
+            <p>this is demo pages </p>
+            <h1>{id}</h1>
+        </>
+      )
+  }
 
-  return (
-    <div>
-      <h1>Count : {count} </h1>
-      <button
-        onClick={() => {
-          setCount(count + 1);
-          console.log(count);
-        }}
-      >
-        Increament
-      </button>
-    </div>
-  );
-};
-
-export default Demo;
+  export default Demo;
