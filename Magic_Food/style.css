@@ -80,3 +80,12 @@ html,body{
 {
     padding:5px;  
 }
+.active{
+    color:red;
+}
+.user-card
+{
+    padding:10px;
+    border:1px solid black;
+
+}
