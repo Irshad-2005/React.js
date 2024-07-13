@@ -1,10 +1,12 @@
 import ReactDOM from "react-dom/client";
 import Demo from "./components/Demo";
+import Counter from "./components/Counter.Classic";
+import "../style.css"
 const App = () => {
   return (
-    <div>
+    <div >
       <h1>This is Component</h1>
-      <Demo />
+      <Counter />
     </div>
   );
 };
