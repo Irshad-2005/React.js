@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "../utils/Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filterOfRestaurant,setFilterOfRestaurant] =useState([]);
@@ -24,6 +25,7 @@ const Body = () => {
   useEffect(() => {
     getData();
   }, []);
+  const {user,setUser} = useContext(UserContext);
   console.log("body render");
   const onlineStatus =  useOnlineStatus();
   if(onlineStatus === false)
@@ -35,36 +37,39 @@ const Body = () => {
        );
     }
   return listOfRestaurant.length === 0 ? <Shimmer/> :(
-    <div className="body">
-      <div className="top-rated">
-          <div className="search-box">
-                <input type="text"
+    <div className="">
+      <div className="flex">
+          <div className="flex">
+                <input className=" m-2 px-4 border-solid border-black bg-gray-300 rounded-lg"  type="text"
                   value={searchText}
                   onChange={(e)=>{
                     setSearchText(e.target.value);
                     
                     }}/>
-                <button className="btn-search" onClick={()=>
+                <button className="m-2 px-3 py-1.5 bg-blue-600 rounded-lg" onClick={()=>
                   {
                      const filter = listOfRestaurant.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()))
                      setFilterOfRestaurant(filter)
                   }
-                }>search</button>
-          </div>
+                }>Search</button>
+                <input value={user.name} onChange={(e)=> setUser({name:e.target.value,email:"new@gmail.com"})}/>
+                
+            </div>
+          <div>
         <button
-          className="top-btn"
+          className="bg-green-500 m-2 px-3 py-1.5 rounded-lg"
           onClick={() => {
             let filterData = listOfRestaurant.filter(
-              (res) => res.info.avgRating > 4.5
+              (res) => res.info.avgRating > 4
             );
             setFilterOfRestaurant(filterData);
           }}
         >
           Top Rated Restaurant
         </button>
-        
+         </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filterOfRestaurant.map((res) => (
          <Link key={res.info.id}  to={"restaurants/"+res.info.id}><RestaurantCard res={res} /></Link> 
         ))}
