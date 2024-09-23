@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {CDN_URL} from "../utils/constants"
 import FoodItmes from "./FoodItems";
 import { clearItem } from "../utils/cardSlice.js";
+import PaymentCard from "./PaymentCard.js";
 const Card = () => {
   const cardItem = useSelector((store) => store.card.item);
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const Card = () => {
       }
       
     </div>
+    <PaymentCard/>
     </>
   );
 };
