@@ -20,7 +20,7 @@ const MenuCard = ({ item }) => {
         Price : {price / 100 || defaultPrice / 100} ₹
       </h2>
       <h3 className="px-1 mx-1">Rating : {rating} ⭐</h3>
-      <button className="p-2 mx-12 my-4 rounded-lg bg-green-400" onClick={()=> addItemHandler()}>Add Card</button>
+      <button className="p-2 mx-12 my-4 rounded-lg bg-green-400 hover:bg-red-400" onClick={()=> addItemHandler()}>Add Card</button>
     </div>
   );
 };
