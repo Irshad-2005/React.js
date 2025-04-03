@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import conf from "./conf/conf.js"
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+ 
+  console.log(conf.appwriteUrl)
   return( 
+          
           <>
             <div>
                 mega project with Irshad ali
