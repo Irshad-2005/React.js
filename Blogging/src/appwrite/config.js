@@ -16,7 +16,7 @@ class Service{
           this.storage = new Storage(this.client);
        }
 
-       async createPost({title,slug,content,featuesImages,status,userId})
+       async createPost({title,slug,content,featuredImage,status,userId})
        {
            try {
                  return await this.database.createDocument(
@@ -25,7 +25,7 @@ class Service{
                          {
                             title,
                             content,
-                            featuesImages,
+                            featuredImage,
                             status,
                             userId
                          }
@@ -37,7 +37,7 @@ class Service{
               
            }
        }
-       async updatePost({title,content,featuesImages,status},slug)
+       async updatePost({title,content,featuredImage,status},slug)
        {
         try {
              return await this.database.updateDocument(
@@ -47,7 +47,7 @@ class Service{
                 {
                     title,
                     content,
-                    featuesImages,
+                    featuredImage,
                     status
                 }
             );
