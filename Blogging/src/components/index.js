@@ -6,6 +6,7 @@ import Input from "./Input.jsx"
 import Logo from "./Logo.jsx"
 import PostCard from "./PostCard.jsx"
 import Select from "./Select.jsx"
+import RTE from "./RTE.jsx"
 
 export {
     Header,
@@ -15,5 +16,6 @@ export {
     Input,
     Logo,
     PostCard,
-    Select
+    Select,
+    RTE
 }
